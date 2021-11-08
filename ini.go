@@ -2,7 +2,6 @@ package main
 
 import (
 	"io/ioutil"
-	"os"
 
 	"github.com/pkg/errors"
 	"github.com/urfave/cli/v2"
@@ -12,7 +11,7 @@ import (
 func readConfig(c *cli.Context) (*ini.File, error) {
 
 	if c.String("file") == "-" { // read from stdin
-		bytes, err := ioutil.ReadAll(os.Stdin)
+		bytes, err := ioutil.ReadAll(c.App.Reader)
 		if err != nil {
 			return nil, errors.Wrapf(err, "unable to read from stdin")
 		}
@@ -34,8 +33,8 @@ func readConfig(c *cli.Context) (*ini.File, error) {
 }
 
 func saveConfig(c *cli.Context, cfg *ini.File) error {
-	if c.String("file") == "" {
-		_, err := cfg.WriteTo(os.Stdout)
+	if c.String("file") == "-" {
+		_, err := cfg.WriteTo(c.App.Writer)
 		return err
 	} else {
 		return cfg.SaveTo(c.String("file"))
