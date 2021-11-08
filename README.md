@@ -4,7 +4,6 @@
 * Delete key `./ini-query --file=testing.ini delete --section baz --property foo`
 
 ## TO DO:
-* Unit tests
 * github ci
 * package up for distros?
 
