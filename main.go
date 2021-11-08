@@ -12,7 +12,7 @@ import (
 var (
 	gitHash        = ""
 	releaseVersion = ""
-	gitDirty       = ""
+	gitState       = ""
 )
 
 var sectionFlag = &cli.StringFlag{
@@ -38,11 +38,11 @@ func printOutput(c *cli.Context, output string) error {
 }
 
 func getVersion() string {
-	if gitDirty != "" && releaseVersion != "" {
+	if gitState == "clean" && releaseVersion != "" {
 		return releaseVersion
 	}
 
-	if gitDirty != "" {
+	if gitState != "clean" {
 		return fmt.Sprintf("%s (dirty)", gitHash)
 	}
 
