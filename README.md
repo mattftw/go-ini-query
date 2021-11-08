@@ -8,4 +8,4 @@
 
 ## Why does this exist?
 * I wanted something that would allow me to create / edit values in `.ini` files via commands
-* I wanted no dependencies
+* I wanted no runtime dependencies
