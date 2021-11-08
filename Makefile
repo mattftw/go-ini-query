@@ -1,4 +1,4 @@
-.PHONY: build release 
+.PHONY: build release test
 GIT_HASH := $(shell git rev-parse HEAD)
 RELEASE_VERSION := ${RELEASE_VERSION}
 
@@ -7,6 +7,10 @@ ifeq ($(shell git status --porcelain),"")
     GIT_DIRTY = no
 endif
 
+test:
+	mkdir -p ./test-output
+	go test -coverprofile ./test-output/coverprofile
+	go tool cover -html=./test-output/coverprofile -o ./test-output/coverage.html;
 
 build:
 	CGO_ENABLED=0 go build \
