@@ -19,8 +19,8 @@ build:
 
 release:
 	mkdir -p build
-	GOOS=linux GOARCH=amd64  BUILD_FLAGS="-o ./build/go-ini-query-linux-amd64" make build
-	GOOS=linux GOARCH=arm64  BUILD_FLAGS="-o ./build/go-ini-query-linux-arm64" make build
-	GOOS=linux GOARCH=386    BUILD_FLAGS="-o ./build/go-ini-query-linux-386" make build
+	GOOS=linux  GOARCH=amd64  BUILD_FLAGS="-o ./build/go-ini-query-linux-amd64" make build
+	GOOS=linux  GOARCH=arm64  BUILD_FLAGS="-o ./build/go-ini-query-linux-arm64" make build
+	GOOS=linux  GOARCH=386    BUILD_FLAGS="-o ./build/go-ini-query-linux-386" make build
 	GOOS=darwin GOARCH=amd64 BUILD_FLAGS="-o ./build/go-ini-query-darwin-amd64" make build
 	GOOS=darwin GOARCH=arm64 BUILD_FLAGS="-o ./build/go-ini-query-darwin-arm64" make build
