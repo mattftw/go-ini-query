@@ -9,5 +9,5 @@
 * package up for distros?
 
 ## Why does this exist?
-1. I wanted something that would allow me to create / edit values in `.ini` files via commands
-2. I wanted no dependencies
+* I wanted something that would allow me to create / edit values in `.ini` files via commands
+* I wanted no dependencies
